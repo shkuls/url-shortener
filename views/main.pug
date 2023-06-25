@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Main
+        link(rel="stylesheet", href="./style.css")
+    body 
+body
+    div(class="header")
+        h1 URL Shortener
+    form(action="/" method="post" id="urlInputForm" class="toBlock")
+        input(type="text" name="inputUrl"  class="toBlock" placeholder="Input URL" id="urlinput")
+        input(type="text" name="note"  class="toBlock" placeholder="Note" id="note")
+        input(type="submit" class="toBlock" id="submit" )
+    div(id="links")
+        a(href="/prevUrl" class="toBlock" id="guides") Previous URLs
+        a(href="/" class="toBlock" id="guides") Shorten URL
+    p(id="err") #{errMsg}
+    table(id="urlTable")
+        
+            tr
+                th(class="itemHeading" id="long") LongURL         
+                th(class="itemHeading" id="short") ShortURL      
+                //- th(class="itemHeading" id="clicks") Clicks      
+                th(class="itemHeading" id="note") Note
+
+            each url in urlData
+                if(url != null)
+                    if(url.fullname.length > 0)
+                        div
+                            tr
+                                td(class="itemHeading" id="longLink") 
+                                    a(class="longLink")   #{url.fullname}
+                                td(class="itemHeading" id="short" ) 
+                                       
+                                    a( class="shortLink") #{url.shortname}   
+                                //- td(class="itemHeading" class="clicks") #{url.clicks}
+                                       
+                                td(class="itemHeading" class="note") #{url.note}
+            script(src="script.js")
+    footer(class="foot")
+        h2 Made by Shlok           
+
