@@ -10,15 +10,14 @@ html(lang="en")
 body
     div(class="header")
         h1 URL Shortener
-    form(action="/" method="post" id="urlInputForm" class="toBlock")
-        input(type="text" name="inputUrl"  class="toBlock" placeholder="Input URL" id="urlinput")
-        input(type="text" name="note"  class="toBlock" placeholder="Note" id="note")
-        input(type="submit" class="toBlock" id="submit" value="Shorten")
+    form(action="/search" method="post" id="urlInputForm" class="toBlock")
+        input(type="text" name="search"  class="toBlock" placeholder="Search URL or Note" id="urlinput")
+        input(type="submit" class="toBlock" id="submit" value="Search" )
+   
     div(id="links")
         a(href="/prevUrl" class="toBlock" id="guides") Previous URLs
         a(href="/" class="toBlock" id="guides") Shorten URL
-        a(href="/search" class="toBlock" id="guides") SearchUrl
-    p(id="err") #{errMsg}
+        a(href="/search" class="toBlock" id="guides" ) SearchUrl
     table(id="urlTable")
         
             tr
@@ -40,6 +39,8 @@ body
                                 //- td(class="itemHeading" class="clicks") #{url.clicks}
                                        
                                 td(class="itemHeading" class="note") #{url.note}
+                else
+                    p(id="err") No URL Found
             script(src="script.js")
     footer(class="foot")
         h2 Made by Shlok           

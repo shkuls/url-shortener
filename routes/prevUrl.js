@@ -15,7 +15,7 @@ router.get("/prevUrl" , (req,res)=>{
             prevData.push(element);
         });
         //res.send(prevData);
-        res.render(path.join(rootDir, 'views/prevUrls.pug') , {urlData: prevData.reverse()});
+        res.render(path.join(rootDir, 'views/prevUrls.pug') , {urlData: prevData});
     }
     loader();
 });
